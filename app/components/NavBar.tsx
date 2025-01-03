@@ -17,7 +17,7 @@ export async function NavBar() {
             height={30}
           />
         </Link>
-        <div className="flex items-center gap-5 text-black">
+        <div className="flex items-center gap-5 text-black font-medium">
           {session && session?.user ? (
             <>
               <Link href="/startup/create">
