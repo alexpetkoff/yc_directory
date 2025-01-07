@@ -10,7 +10,7 @@ function SearchForm({ query }: { query?: string }) {
         type="text"
         name="query"
         defaultValue={query}
-        className="search-input placeholder:opacity-45"
+        className="search-input placeholder:opacity-45 placeholder:text-[20px]"
         placeholder="Search Startups..."
       />
       <div className="flex gap-2">
