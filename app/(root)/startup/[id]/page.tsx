@@ -4,7 +4,7 @@ import { formatDate } from "@/utils/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import React from "react";
+import React, { Suspense } from "react";
 
 export const experimental_ppr = true;
 
@@ -23,6 +23,7 @@ export default async function StartUpDetailsPage({
     <>
       <section className="pink_container !min-h-[230px]">
         <p className="tag">{formatDate(post?._createdAt)}</p>
+
         <h1 className="heading">{post?.title}</h1>
         <p className="sub-heading !max-w-5xl">{post?.description}</p>
       </section>
@@ -53,6 +54,25 @@ export default async function StartUpDetailsPage({
           <h3 className="text-30-bold">Pitch Details:</h3>
           <div className="">{post?.pitch}</div>
         </div>
+        {/* TODO: dynamic rendering of EDITOR SELECTED STARTUPS */}
+        <Suspense fallback={<div className="view_skeleton"></div>}>
+          <div className="view-container">
+            <div className="absolute -top-2 -right-2">
+              <div className="relative">
+                <div className="absolute -left-4 top-1">
+                  <span className="flex size-[11px]">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-70"></span>
+                    <span className="inline-flex rounded-full bg-primary size-[11px]"></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <p className="view-text">
+              <span className="font-black">100 views</span>
+            </p>
+          </div>
+        </Suspense>
       </section>
     </>
   );
